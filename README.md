@@ -6,7 +6,7 @@
 [![Target SDK](https://img.shields.io/badge/targetSdk-36-informational)](#)
 
 ## App Overview
-Modern expense tracking app built with Jetpack Compose, Clean Architecture, Hilt, and Room. Designed end‑to‑end in Cursor with an AI‑first workflow and documented under `context/`.
+Modern expense tracking app built with Jetpack Compose, Clean Architecture, Hilt, and Room. Designed end‑to‑end in Cursor with an AI‑first workflow and documented under [`context/`](context/).
 It enables quick expense entry, powerful filtering, and simple weekly insights—all fully offline with optional persistence.
 
 ## 📱 Download
@@ -18,7 +18,7 @@ APK: Ready to install directly on your Android device. Download and install the 
 ## AI Usage Summary
 Built in an AI‑first workflow using Cursor with ChatGPT to scaffold modules (ViewModels, repositories, Room entities/DAOs), generate Compose UI, and refine UX copy/validation.
 Copilot assisted with boilerplate and quick refactors, while iterative prompts guided architecture decisions and navigation/state handling.
-All key prompts, retries, and decisions are logged under `context/` for transparency and reproducibility.
+All key prompts, retries, and decisions are logged under [`context/`](context/) for transparency and reproducibility.
 
 ## Prompt Logs (Key Prompts)
 > Plan Clean Architecture and module boundaries for SmartExpensetracker; mirror patterns from JarOnboardingAnimation.
@@ -29,7 +29,7 @@ All key prompts, retries, and decisions are logged under `context/` for transpar
 
 > Create Room entities/DAO for expenses and mappers between domain/data layers.
 
-Comprehensive logs: see `context/execution/prompts.md`.
+Comprehensive logs: see [`context/execution/prompts.md`](context/execution/prompts.md).
 
 ## Checklist of Features Implemented
 - [x] Expense Entry: title, amount, category (Staff, Travel, Food, Utility), optional notes, optional receipt image (cached; path saved in Room)
@@ -40,45 +40,41 @@ Comprehensive logs: see `context/execution/prompts.md`.
 - [ ] Export/Share from Reports (optional in spec; currently not enabled)
 
 ## Screens
-- Add Expense (`ExpenseEntryScreen`)
-- Expenses (`ExpenseListScreen`)
-- Reports (`ExpenseReportScreen`)
+- Add Expense ([`ExpenseEntryScreen.kt`](app/src/main/java/com/shankarkakumani/smartexpensetracker/presentation/expense_entry/ExpenseEntryScreen.kt))
+- Expenses ([`ExpenseListScreen.kt`](app/src/main/java/com/shankarkakumani/smartexpensetracker/presentation/expense_list/ExpenseListScreen.kt))
+- Reports ([`ExpenseReportScreen.kt`](app/src/main/java/com/shankarkakumani/smartexpensetracker/presentation/expense_report/ExpenseReportScreen.kt))
 
 ## Screenshots
 
-**Add Expense**
+<table>
+  <tr>
+    <td><img src="screenshots/add_expense_light_mode.png" alt="Add Expense - Light" width="260"/></td>
+    <td><img src="screenshots/add_expense_dark_mode.png" alt="Add Expense - Dark" width="260"/></td>
+    <td><img src="screenshots/expenses_light_mode.png" alt="Expenses - Light" width="260"/></td>
+  </tr>
+  <tr>
+    <td><img src="screenshots/expeses_dark_mode.png" alt="Expenses - Dark" width="260"/></td>
+    <td><img src="screenshots/filter_by_category.png" alt="Filter - By Category" width="260"/></td>
+    <td><img src="screenshots/filter_one.png" alt="Filter - One" width="260"/></td>
+  </tr>
+  <tr>
+    <td><img src="screenshots/reports_light_mode.png" alt="Reports - Light" width="260"/></td>
+    <td><img src="screenshots/reports_dark_mode.png" alt="Reports - Dark" width="260"/></td>
+    <td><img src="screenshots/Screenshot_20250809_220157.png" alt="App Overview" width="260"/></td>
+  </tr>
+</table>
 
-![Add Expense - Light](screenshots/add_expense_light_mode.png)
-![Add Expense - Dark](screenshots/add_expense_dark_mode.png)
-
-**Expenses List**
-
-![Expenses - Light](screenshots/expenses_light_mode.png)
-![Expenses - Dark](screenshots/expeses_dark_mode.png)
-
-**Filters**
-
-![Filter - By Category](screenshots/filter_by_category.png)
-![Filter - One](screenshots/filter_one.png)
-
-**Reports**
-
-![Reports - Light](screenshots/reports_light_mode.png)
-![Reports - Dark](screenshots/reports_dark_mode.png)
-
-**Device Snapshot**
-
-![App Overview](screenshots/Screenshot_20250809_220157.png)
+<sub>Tip: Click an image to open it full size on GitHub.</sub>
 
 ## Architecture
-- Clean Architecture (modules: `app`, `domain`, `data`, `common`)
+- Clean Architecture (modules: [`app`](app/), [`domain`](domain/), [`data`](data/), [`common`](common/))
 - State‑driven UI with `StateFlow` ViewModels per screen
 - Hilt DI modules for repositories, data sources, Room database
-- Room for local persistence (`ExpenseEntity`, `ExpenseDao`, `SmartExpenseDatabase`)
-- Mappers converting between domain and data models
+- Room for local persistence ([`ExpenseEntity.kt`](data/src/main/java/com/shankarkakumani/data/client/room/entity/ExpenseEntity.kt), [`ExpenseDao.kt`](data/src/main/java/com/shankarkakumani/data/client/room/dao/ExpenseDao.kt), [`SmartExpenseDatabase.kt`](data/src/main/java/com/shankarkakumani/data/client/room/database/SmartExpenseDatabase.kt))
+- Mappers converting between domain and data models ([`ExpenseMapper.kt`](data/src/main/java/com/shankarkakumani/data/mapper/ExpenseMapper.kt))
 
 ## Data Model
-- Domain `Expense` includes: `title`, `amount`, `category`, `notes?`, `receiptImageUrl?`, `timestamp`
+- Domain models: [`Expense.kt`](domain/src/main/java/com/shankarkakumani/domain/model/Expense.kt), [`ExpenseCategory.kt`](domain/src/main/java/com/shankarkakumani/domain/model/ExpenseCategory.kt), [`WeeklyReport.kt`](domain/src/main/java/com/shankarkakumani/domain/model/WeeklyReport.kt)
 - Receipt images are copied to app `cacheDir` and previewed immediately; cached file path is saved to Room for retrieval
 
 ## UX Notes
@@ -133,11 +129,11 @@ Default values are provided for local builds. Replace with your own keystore for
 
 ## AI‑First Development in Cursor
 This project was created with AI assistance in Cursor. The `context/` folder documents the process:
-- `context/requirements/original_requirements.md`: authoritative scope and acceptance criteria
-- `context/docs/architecture.md`: architecture decisions
-- `context/execution/tasks.md` and `implementation.md`: step‑by‑step execution log
-- `context/execution/prompts.md`: representative prompts
-- `context/ai-usage.md`: summary of AI usage
+- [`context/requirements/original_requirements.md`](context/requirements/original_requirements.md): authoritative scope and acceptance criteria
+- [`context/docs/architecture.md`](context/docs/architecture.md): architecture decisions
+- [`context/execution/tasks.md`](context/execution/tasks.md) and [`implementation.md`](context/execution/implementation.md): step‑by‑step execution log
+- [`context/execution/prompts.md`](context/execution/prompts.md): representative prompts
+- [`context/ai-usage.md`](context/ai-usage.md): summary of AI usage
 
 Workflow notes:
 - Iterative edits generated by AI in Cursor
