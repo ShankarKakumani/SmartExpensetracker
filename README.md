@@ -50,18 +50,24 @@ Comprehensive logs: see [`context/execution/prompts.md`](context/execution/promp
   <tr>
     <td><img src="screenshots/add_expense_light_mode.png" alt="Add Expense - Light" width="260"/></td>
     <td><img src="screenshots/add_expense_dark_mode.png" alt="Add Expense - Dark" width="260"/></td>
-    <td><img src="screenshots/expenses_light_mode.png" alt="Expenses - Light" width="260"/></td>
+
   </tr>
   <tr>
+    <td><img src="screenshots/expenses_light_mode.png" alt="Expenses - Light" width="260"/></td>
     <td><img src="screenshots/expeses_dark_mode.png" alt="Expenses - Dark" width="260"/></td>
-    <td><img src="screenshots/filter_by_category.png" alt="Filter - By Category" width="260"/></td>
-    <td><img src="screenshots/filter_one.png" alt="Filter - One" width="260"/></td>
   </tr>
+
   <tr>
     <td><img src="screenshots/reports_light_mode.png" alt="Reports - Light" width="260"/></td>
     <td><img src="screenshots/reports_dark_mode.png" alt="Reports - Dark" width="260"/></td>
-    <td><img src="screenshots/Screenshot_20250809_220157.png" alt="App Overview" width="260"/></td>
   </tr>
+
+  <tr>
+    <td><img src="screenshots/filter_by_category.png" alt="Filter - By Category" width="260"/></td>
+    <td><img src="screenshots/filter_one.png" alt="Filter - One" width="260"/></td>
+  </tr>
+
+  
 </table>
 
 <sub>Tip: Click an image to open it full size on GitHub.</sub>
