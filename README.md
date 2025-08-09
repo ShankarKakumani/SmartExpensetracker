@@ -1,5 +1,3 @@
-// AI-generated: Project documentation (README refreshed for clarity and engagement)
-
 # Smart Expense Tracker
 
 [![Android](https://img.shields.io/badge/Android-Compose-3DDC84?logo=android&logoColor=white)](https://developer.android.com/jetpack/compose)
@@ -20,9 +18,6 @@ Modern expense tracking app built with Jetpack Compose, Clean Architecture, Hilt
 - Add Expense (`ExpenseEntryScreen`)
 - Expenses (`ExpenseListScreen`)
 - Reports (`ExpenseReportScreen`)
-
-> Screenshots
-> Place screenshots in `docs/images/` and reference here once available.
 
 ## Architecture
 - Clean Architecture (modules: `app`, `domain`, `data`, `common`)
