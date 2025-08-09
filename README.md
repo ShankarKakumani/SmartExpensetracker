@@ -7,6 +7,12 @@
 
 Modern expense tracking app built with Jetpack Compose, Clean Architecture, Hilt, and Room. Designed end‑to‑end in Cursor with an AI‑first workflow and documented under `context/`.
 
+## 📱 Download
+
+[![Download APK](https://img.shields.io/badge/Download-APK%20v1.0-228B22?style=for-the-badge&logo=android)](https://github.com/ShankarKakumani/SmartExpensetracker/releases/download/v1.0/app-release.apk)
+
+APK: Ready to install directly on your Android device. Download and install the `app-release.apk`.
+
 ## Features
 - Expense Entry: title, amount, category (Staff, Travel, Food, Utility), optional notes, optional receipt image (cached; path saved in Room)
 - Real‑time “Total Spent Today” summary with validation
