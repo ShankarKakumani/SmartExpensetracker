@@ -5,7 +5,9 @@
 [![Min SDK](https://img.shields.io/badge/minSdk-24-informational)](#)
 [![Target SDK](https://img.shields.io/badge/targetSdk-36-informational)](#)
 
+## App Overview
 Modern expense tracking app built with Jetpack Compose, Clean Architecture, Hilt, and Room. Designed end‑to‑end in Cursor with an AI‑first workflow and documented under `context/`.
+It enables quick expense entry, powerful filtering, and simple weekly insights—all fully offline with optional persistence.
 
 ## 📱 Download
 
@@ -13,17 +15,60 @@ Modern expense tracking app built with Jetpack Compose, Clean Architecture, Hilt
 
 APK: Ready to install directly on your Android device. Download and install the `app-release.apk`.
 
-## Features
-- Expense Entry: title, amount, category (Staff, Travel, Food, Utility), optional notes, optional receipt image (cached; path saved in Room)
-- Real‑time “Total Spent Today” summary with validation
-- Expense List: today by default, date/category filters, grouping (none/category/date), search, empty and loading states
-- Reports: last 7 days analytics with daily totals, category breakdown, bar chart
-- Theming: Material 3 with light/dark support
+## AI Usage Summary
+Built in an AI‑first workflow using Cursor with ChatGPT to scaffold modules (ViewModels, repositories, Room entities/DAOs), generate Compose UI, and refine UX copy/validation.
+Copilot assisted with boilerplate and quick refactors, while iterative prompts guided architecture decisions and navigation/state handling.
+All key prompts, retries, and decisions are logged under `context/` for transparency and reproducibility.
+
+## Prompt Logs (Key Prompts)
+> Plan Clean Architecture and module boundaries for SmartExpensetracker; mirror patterns from JarOnboardingAnimation.
+
+> Scaffold ExpenseEntryViewModel with StateFlow, validation (title non‑empty, amount > 0), and addExpense handler.
+
+> Compose UI for ExpenseListScreen with date/category filters, grouping toggle, empty/loading states.
+
+> Create Room entities/DAO for expenses and mappers between domain/data layers.
+
+Comprehensive logs: see `context/execution/prompts.md`.
+
+## Checklist of Features Implemented
+- [x] Expense Entry: title, amount, category (Staff, Travel, Food, Utility), optional notes, optional receipt image (cached; path saved in Room)
+- [x] Real‑time “Total Spent Today” summary with validation
+- [x] Expense List: today by default, date/category filters, grouping (none/category/date), search, empty and loading states
+- [x] Reports: last 7 days analytics with daily totals, category breakdown, bar chart
+- [x] Theming: Material 3 with light/dark support
+- [ ] Export/Share from Reports (optional in spec; currently not enabled)
 
 ## Screens
 - Add Expense (`ExpenseEntryScreen`)
 - Expenses (`ExpenseListScreen`)
 - Reports (`ExpenseReportScreen`)
+
+## Screenshots
+
+**Add Expense**
+
+![Add Expense - Light](screenshots/add_expense_light_mode.png)
+![Add Expense - Dark](screenshots/add_expense_dark_mode.png)
+
+**Expenses List**
+
+![Expenses - Light](screenshots/expenses_light_mode.png)
+![Expenses - Dark](screenshots/expeses_dark_mode.png)
+
+**Filters**
+
+![Filter - By Category](screenshots/filter_by_category.png)
+![Filter - One](screenshots/filter_one.png)
+
+**Reports**
+
+![Reports - Light](screenshots/reports_light_mode.png)
+![Reports - Dark](screenshots/reports_dark_mode.png)
+
+**Device Snapshot**
+
+![App Overview](screenshots/Screenshot_20250809_220157.png)
 
 ## Architecture
 - Clean Architecture (modules: `app`, `domain`, `data`, `common`)
