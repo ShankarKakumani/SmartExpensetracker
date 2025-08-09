@@ -1,0 +1,46 @@
+---
+description: Hilt dependency injection patterns
+globs: ["**/*Module.kt", "**/*ViewModel.kt", "**/*Repository*.kt"]
+alwaysApply: false
+---
+
+# Hilt DI Rules
+
+## Module Organization
+- `AppModule` (app) - Navigation, app-level dependencies
+- `DataModule` (data) - Repository implementations, data sources
+- `PresentationModule` (app) - ViewModels (if needed)
+
+## Scoping
+- `@Singleton` for repositories and data sources
+- `@ViewModelScoped` for ViewModel dependencies
+- No scope for use cases (lightweight)
+
+## Injection Points
+```kotlin
+// ViewModels
+@HiltViewModel
+class FeatureViewModel @Inject constructor(
+    private val useCase: FeatureUseCase
+) : ViewModel()
+
+// Repositories
+@Singleton
+class ExpenseRepositoryImpl @Inject constructor(
+    private val localDataSource: ExpenseLocalDataSource
+) : ExpenseRepository
+```
+
+## Module Pattern
+```kotlin
+@Module
+@InstallIn(SingletonComponent::class)
+object DataModule {
+    
+    @Provides
+    @Singleton
+    fun provideExpenseRepository(
+        localDataSource: ExpenseLocalDataSource
+    ): ExpenseRepository = ExpenseRepositoryImpl(localDataSource)
+}
+```

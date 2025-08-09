@@ -1,0 +1,46 @@
+---
+description: Testing standards for expense tracker
+globs: ["**/*Test.kt", "**/*Test*.kt"]
+alwaysApply: false
+---
+
+# Testing Standards
+
+## Test Structure
+```kotlin
+class FeatureTest {
+    
+    @Test
+    fun `given condition when action then expected result`() {
+        // Arrange
+        
+        // Act
+        
+        // Assert
+    }
+}
+```
+
+## Mocking
+- Mock external dependencies
+- Use real objects for simple data classes
+- Test behavior, not implementation
+
+## Test Categories
+- **Unit**: Use cases, ViewModels, utilities
+- **Integration**: Repository with data sources
+- **UI**: Compose screens and user interactions
+
+## Coverage Requirements
+- Use cases: 100%
+- ViewModels: >90%  
+- Repositories: >80%
+- Overall: >80%
+
+## Coroutine Testing
+```kotlin
+@Test
+fun `test suspend function`() = runTest {
+    // Test coroutine code
+}
+```

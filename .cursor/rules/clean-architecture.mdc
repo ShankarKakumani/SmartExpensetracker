@@ -1,0 +1,30 @@
+---
+description: Clean Architecture principles for multi-module Android app
+globs: ["**/*.kt"]
+alwaysApply: true
+---
+
+# Clean Architecture Rules
+
+## Module Dependencies
+- `app` → `domain`, `common`
+- `data` → `domain`, `common`  
+- `domain` → `common`
+- NO reverse dependencies
+
+## Package Structure
+```
+feature/
+├── presentation/     # ViewModels, UI State, Screens
+├── domain/          # Use Cases, Models, Repository Interfaces
+└── data/           # Repository Impl, Data Sources, DTOs
+```
+
+## Naming Conventions
+- **Use Cases**: `VerbNounUseCase` (AddExpenseUseCase)
+- **ViewModels**: `FeatureViewModel` (ExpenseEntryViewModel)
+- **Screens**: `FeatureScreen` (ExpenseListScreen)
+- **States**: `FeatureUiState` (ExpenseReportUiState)
+
+## Dependencies Flow
+UI → ViewModel → UseCase → Repository → DataSource

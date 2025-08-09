@@ -1,0 +1,34 @@
+---
+description: AI usage guidelines for development
+globs: []
+alwaysApply: true
+---
+
+# AI Development Guidelines
+
+## Code Generation
+- Generate boilerplate (ViewModels, data classes, modules)
+- Create Compose UI layouts with Material 3
+- Generate test cases and mock data
+
+## Documentation Requirements
+- Add `// AI-generated:` comment for AI-created code blocks
+- Document significant AI prompts in commit messages
+- Maintain AI usage log in `context/ai-usage.md`
+
+## Review Process
+- Verify AI-generated code follows project rules
+- Test all AI-generated functionality
+- Ensure AI code meets Clean Architecture principles
+
+## Prohibited AI Usage
+- Do not use AI for critical business logic without review
+- Do not blindly accept AI suggestions for architecture decisions
+- Always validate AI-generated dependency configurations
+
+## AI Integration Areas
+1. UI component generation
+2. Repository implementations  
+3. Test case creation
+4. Utility function development
+5. Documentation writing

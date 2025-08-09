@@ -1,0 +1,46 @@
+---
+description: Domain layer rules for expense management
+globs: ["domain/**/*.kt"]
+alwaysApply: false
+---
+
+# Expense Domain Rules
+
+## Core Models
+```kotlin
+data class Expense(
+    val id: String,
+    val title: String,
+    val amount: Double,
+    val category: ExpenseCategory,
+    val notes: String?,
+    val receiptImageUrl: String?,
+    val timestamp: Long
+)
+
+enum class ExpenseCategory { STAFF, TRAVEL, FOOD, UTILITY }
+```
+
+## Validation Rules
+- Amount must be > 0
+- Title cannot be empty/blank
+- Notes max 100 characters
+- Use Result<T> for error handling
+
+## Use Case Pattern
+```kotlin
+class FeatureUseCase @Inject constructor(
+    private val repository: ExpenseRepository
+) {
+    suspend operator fun invoke(param: Type): Result<ReturnType> {
+        // Validation
+        // Business logic
+        // Repository call
+    }
+}
+```
+
+## Repository Interface
+- Define in domain layer
+- Return Result<T> for all operations
+- No Android dependencies
